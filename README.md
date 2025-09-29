@@ -68,17 +68,6 @@ VALUES
 (1, 'Finish Angular Project v2', 'Updated task description', '2025-10-01', 'Medium', 'In Progress');
 ```
 
-### Optional Stored Procedure Example
-
-```sql
-CREATE PROCEDURE GetTasksDueToday
-AS
-BEGIN
-    SELECT * FROM Tasks
-    WHERE DueDate = CAST(GETDATE() AS DATE)
-END
-```
-
 ## Project Structure
 
 ```
