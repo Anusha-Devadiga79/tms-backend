@@ -83,12 +83,12 @@ tms-backend/
 │   ├── auth.js
 │   └── tasks.js
 ├── middleware/
-│   └── auth.js
+│   └── authMiddleware.js
 ├── controllers/
 │   ├── authController.js
-│   └── taskController.js
-└── database/
-    └── db.js
+│   └── tasksController.js
+├── db.js
+└── schema.sql
 ```
 
 ---
