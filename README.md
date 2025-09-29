@@ -88,7 +88,7 @@ tms-backend/
 │   ├── authController.js
 │   └── taskController.js
 └── database/
-    └── dbConfig.js
+    └── db.js
 ```
 
 ---
