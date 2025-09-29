@@ -1,25 +1,29 @@
-## **Backend README (`tms-backend`)**
+---
 
-```markdown
 # Task Management System - Backend
 
-This is the **Express + MSSQL backend** for the Task Management System (TMS).  
+This is the **Express + MSSQL backend** for the Task Management System (TMS).
 It provides REST APIs for user authentication and task management.
 
-## Features
+---
 
-- User Registration (Name, Email, Password)
-- User Login with JWT-based authentication
-- Task Management:
-  - Add, Edit, Delete tasks
-  - View tasks for logged-in users
-- Middleware for JWT authentication
-- Error handling (400, 401, 500)
-- Built with Express, Node.js, and MSSQL
+## **Features**
 
-## Database (MSSQL)
+* User Registration (Name, Email, Password)
+* User Login with JWT-based authentication
+* Task Management:
 
-### `.env` Configuration
+  * Add, Edit, Delete tasks
+  * View tasks for logged-in users
+* Middleware for JWT authentication
+* Error handling (400, 401, 500)
+* Built with Express, Node.js, and MSSQL
+
+---
+
+## **Database (MSSQL)**
+
+### **.env Configuration**
 
 ```env
 DB_USER=anusha
@@ -27,34 +31,34 @@ DB_PASSWORD=bcca
 DB_SERVER=localhost
 DB_DATABASE=TMS
 JWT_SECRET=your_secret_key
-````
-
-### Tables
-
-1. **Users**
-
-```
-UserId INT PRIMARY KEY IDENTITY(1,1)
-Name NVARCHAR(100)
-Email NVARCHAR(100) UNIQUE
-PasswordHash NVARCHAR(255)
-CreatedAt DATETIME DEFAULT GETDATE()
 ```
 
-2. **Tasks**
+### **Tables**
 
-```
-TaskId INT PRIMARY KEY IDENTITY(1,1)
-UserId INT FOREIGN KEY REFERENCES Users(UserId)
-Title NVARCHAR(200)
-Description NVARCHAR(MAX)
-DueDate DATE
-Priority NVARCHAR(20)
-Status NVARCHAR(20)
-CreatedAt DATETIME DEFAULT GETDATE()
-```
+**1. Users**
 
-### Sample Data
+| Column       | Type          | Notes                      |
+| ------------ | ------------- | -------------------------- |
+| UserId       | INT           | PRIMARY KEY, IDENTITY(1,1) |
+| Name         | NVARCHAR(100) |                            |
+| Email        | NVARCHAR(100) | UNIQUE                     |
+| PasswordHash | NVARCHAR(255) |                            |
+| CreatedAt    | DATETIME      | DEFAULT GETDATE()          |
+
+**2. Tasks**
+
+| Column      | Type          | Notes                                |
+| ----------- | ------------- | ------------------------------------ |
+| TaskId      | INT           | PRIMARY KEY, IDENTITY(1,1)           |
+| UserId      | INT           | FOREIGN KEY REFERENCES Users(UserId) |
+| Title       | NVARCHAR(200) |                                      |
+| Description | NVARCHAR(MAX) |                                      |
+| DueDate     | DATE          |                                      |
+| Priority    | NVARCHAR(20)  | Low / Medium / High                  |
+| Status      | NVARCHAR(20)  | Pending / In Progress / Completed    |
+| CreatedAt   | DATETIME      | DEFAULT GETDATE()                    |
+
+### **Sample Data**
 
 ```sql
 -- Users
@@ -68,7 +72,9 @@ VALUES
 (1, 'Finish Angular Project v2', 'Updated task description', '2025-10-01', 'Medium', 'In Progress');
 ```
 
-## Project Structure
+---
+
+## **Project Structure**
 
 ```
 tms-backend/
@@ -85,7 +91,9 @@ tms-backend/
     └── dbConfig.js
 ```
 
-## Setup Instructions
+---
+
+## **Setup Instructions**
 
 1. Clone the repository:
 
@@ -113,17 +121,19 @@ node server.js
 6. API endpoints:
 
 ```
-POST /register - Register a new user
-POST /login - Login and get JWT token
-GET /tasks - Get tasks for logged-in user
-POST /tasks - Add new task
-PUT /tasks/:id - Update task
-DELETE /tasks/:id - Delete task
+POST   /register        - Register a new user
+POST   /login           - Login and get JWT token
+GET    /tasks           - Get tasks for logged-in user
+POST   /tasks           - Add new task
+PUT    /tasks/:id       - Update task
+DELETE /tasks/:id       - Delete task
 ```
 
-## Links
+---
+
+## **Links**
 
 * Frontend Repository: [tms-frontend](https://github.com/Anusha-Devadiga79/tms-frontend)
 * SQL Script: `schema.sql`
 
-```
+---
